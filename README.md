@@ -1,4 +1,4 @@
-# End-to-end-Chatbot-Generative-AI
+# End-to-end-International-Law-Chatbot-Generative-AI
 self
 
 # How to run?
