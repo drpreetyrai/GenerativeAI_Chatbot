@@ -6,6 +6,7 @@ from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
+from langchain_groq import ChatGroq
 from src.prompt import *
 import os
 
@@ -14,15 +15,15 @@ app = Flask(__name__)
 load_dotenv()
 
 PINECONE_API_KEY=os.environ.get('PINECONE_API_KEY')
-OPENAI_API_KEY=os.environ.get('OPENAI_API_KEY')
+GROQ_API_KEY=os.environ.get('GROQ_API_KEY')
 
 os.environ["PINECONE_API_KEY"] = PINECONE_API_KEY
-os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
+os.environ["GROQ_API_KEY"] = GROQ_API_KEY
 
 embeddings = download_hugging_face_embeddings()
 
 
-index_name = "medicalbot"
+index_name = "internationlawbot"
 
 # Embed each chunk and upsert the embeddings into your Pinecone index.
 docsearch = PineconeVectorStore.from_existing_index(
@@ -33,7 +34,9 @@ docsearch = PineconeVectorStore.from_existing_index(
 retriever = docsearch.as_retriever(search_type="similarity", search_kwargs={"k":3})
 
 
-llm = OpenAI(temperature=0.4, max_tokens=500)
+
+
+llm = ChatGroq(groq_api_key=GROQ_API_KEY, model_name="deepseek-r1-distill-llama-70b")
 prompt = ChatPromptTemplate.from_messages(
     [
         ("system", system_prompt),
@@ -63,13 +66,6 @@ def chat():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port= 8080)
-
-
-
-
-
-
-
+    app.run(host="0.0.0.0", port= 8080, debug= True)
 
 
