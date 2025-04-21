@@ -1,5 +1,7 @@
-Metadata-Version: 2.1
+Metadata-Version: 2.2
 Name: Generative-AI-Project
 Version: 0.0.0
 Author: Preety Rai
 Author-email: drpreetyrai@gmail.com
+Dynamic: author
+Dynamic: author-email
