@@ -1,5 +1,5 @@
 # End-to-end-International-Law-Chatbot-Generative-AI
-![alt text](app.png)
+
 
 # How to run?
 ### STEPS:

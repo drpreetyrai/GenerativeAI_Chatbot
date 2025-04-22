@@ -14,19 +14,19 @@
 	
 	
 	<body>
-		<div class="container-fluid w-full h-full">
-			<div class="row justify-content-center w-full h-full">		
-				<div class="col-md-full col-full chat">
-					<div class="car h-full w-full">
+		<div class="container-fluid h-100">
+			<div class="row justify-content-center h-100">		
+				<div class="col-md-8 col-xl-6 chat">
+					<div class="card">
 						<div class="card-header msg_head">
 							<div class="d-flex bd-highlight">
 								<div class="img_cont">
-									<!-- <img src="https://i.ibb.co/fSNP7Rz/icons8-chatgpt-512.png" class="rounded-circle user_img"> -->
-									<img src="https://blog.ipleaders.in/wp-content/uploads/2021/11/international-law.jpg" class="rounded-circle user_img">
+									<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXtNxokb20f8zGpaK64ANuAGXajPaN6GNKnMmmNikB4CK2oPome4wBdH40E7IrZIIBwQs&usqp=CAU" class="rounded-circle user_img">
+									<!-- <img src="https://www.prdistribution.com/spirit/uploads/pressreleases/2019/newsreleases/d83341deb75c4c4f6b113f27b1e42cd8-chatbot-florence-already-helps-thousands-of-patients-to-remember-their-medication.png" class="rounded-circle user_img"> -->
 									<span class="online_icon"></span>
 								</div>
 								<div class="user_info">
-									<span>International Law and Legal Assistant Chatbot</span>
+									<span>International Law and Legal Bot Assistant</span>
 									<p>Ask me anything!</p>
 								</div>
 							</div>
@@ -69,7 +69,7 @@
 						type: "POST",
 						url: "/get",
 					}).done(function(data) {
-						var botHtml = '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="https://www.prdistribution.com/spirit/uploads/pressreleases/2019/newsreleases/d83341deb75c4c4f6b113f27b1e42cd8-chatbot-florence-already-helps-thousands-of-patients-to-remember-their-medication.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + data + '<span class="msg_time">' + str_time + '</span></div></div>';
+						var botHtml = '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="https://www.orfonline.org/public/uploads/posts/image/law.jpg" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + data + '<span class="msg_time">' + str_time + '</span></div></div>';
 						$("#messageFormeight").append($.parseHTML(botHtml));
 					});
 					event.preventDefault();
